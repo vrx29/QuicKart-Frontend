@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { IProduct } from '../Home-Interfaces/IProduct';
+import { HomePageService } from '../HomePage-Services/home-page.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,7 +11,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class LandingPageComponent implements OnInit {
   title = 'ng-carousel-demo';
-  
+  productList:IProduct[]=[]
 
   //This array is representing the upper carousel.
   images = [
@@ -18,10 +20,13 @@ export class LandingPageComponent implements OnInit {
     {title: 'Third Slide', short: 'Third Slide Short', src: "assets/Product_Images/carousel3.jpg"}
   ];
 
-  productImages:string[]=['assets/Product_Images/Point_and_shoot_cameras.jpg','assets/Product_Images/TV.jpg','assets/Product_Images/watch.jpg','assets/Product_Images/supplement.jpg',
-'assets/Product_Images/shirt.jpg','assets/Product_Images/eyewear.gif','assets/Product_Images/jeans.jpg','assets/Product_Images/jumpsuits.gifs'
 
-]
+  //These are images of Products
+  productImages:string[]=[]
+//   ['assets/Product_Images/Point_and_shoot_cameras.jpg','assets/Product_Images/TV.jpg','assets/Product_Images/watch.jpg','assets/Product_Images/supplement.jpg',
+// 'assets/Product_Images/shirt.jpg','assets/Product_Images/eyewear.gif','assets/Product_Images/jeans.jpg','assets/Product_Images/jumpsuits.gifs'
+
+// ]
 
   //This array is representing the lower carousel
   images_Lower = [
@@ -29,13 +34,28 @@ export class LandingPageComponent implements OnInit {
     {title: 'Second Slide', short: 'Second Slide Short', src: "assets/Product_Images/carousel5.jpg"},
     {title: 'Third Slide', short: 'Third Slide Short', src: "assets/Product_Images/carousel6.jpg"}
   ];
-  constructor(config: NgbCarouselConfig) {
+  constructor(config: NgbCarouselConfig,private service: HomePageService) {
     config.interval = 1500;
     config.keyboard = true;
     config.pauseOnHover = true;
   }
   ngOnInit(): void {
-    console.log(this.productImages[0])
-  }
+    this.FetchProducts()
+    }
 
+
+
+  FetchProducts(){
+    this.service.getProducts().subscribe(
+      res => {
+        this.productList = res
+        console.log('Products fetched');
+        console.log(this.productList);
+      },
+      err => {
+        this.productList = []
+        console.log('error occured');
+      }
+    )
+  }
 }
