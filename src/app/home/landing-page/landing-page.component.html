@@ -1,0 +1,159 @@
+<div class="topnav">
+    <b routerLink="/home" class="nav-link" style="
+      color: white;
+      cursor: pointer" href="#"> <img src="assets/quickkart.png" height="75px" width="185px" />  <img src="assets/logo2.png" height="75px" width="185px" /> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <input matInput placeholder="Search Products"><span class="material-symbols-outlined" style="height:3rem ;">
+    search
+    </span>
+</b>
+    <img src="assets/user-login.png"  style="cursor:pointer; margin-top: 20px; height: 4rem; float: right;" />
+</div>
+
+<br>
+<div class="container-fluid" style="position: absolute">
+    <ngb-carousel>
+        <ng-template ngbSlide *ngFor="let image of images">
+            <div class="wrapper" style="text-align: center;">
+                <img [src]="image.src" alt="Random first slide" style="height:37rem;width:1400px">
+            </div>
+
+        </ng-template>
+    </ngb-carousel>
+
+</div>
+
+<div class="row">
+
+    <div class="col">
+<mat-card class="example-card" style="position: absolute; margin-top: 30em; margin-left: 15px; ">
+ 
+    <img mat-card-image [src]="productImages[0]" alt="Photo of a Shiba Inu" style="height: 20rem;">
+
+    <mat-card-actions>
+        <button mat-button color="accent" mat-raised-button>20% off on Cameras</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-button color="primary"  mat-raised-button> Explore</button>
+      </mat-card-actions>
+  </mat-card>
+</div>
+<div class="col">
+  <mat-card class="example-card" style="position: absolute; margin-top: 30em">
+ 
+    <img mat-card-image [src]="productImages[1]" alt="Photo of a Shiba Inu" style="height: 20rem;">
+
+    <mat-card-actions>
+        <button mat-button color="accent" mat-raised-button>10% off on TVs</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-button color="primary"  mat-raised-button> Explore</button>
+      </mat-card-actions>
+  </mat-card>
+  </div>
+  <div class="col">
+    <mat-card class="example-card" style="position: absolute; margin-top: 30em; margin-left: 55px; ">
+   
+      <img mat-card-image [src]="productImages[2]" alt="Photo of a Shiba Inu" style="height: 20rem;">
+  
+      <mat-card-actions>
+        <button mat-button color="accent" mat-raised-button>20% off on Watches</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-button color="primary"  mat-raised-button> Explore</button>
+      </mat-card-actions>
+    </mat-card>
+    </div>
+    <div class="col">
+        <mat-card class="example-card" style="position: absolute; margin-top: 30em; margin-left: 15px; ">
+       
+          <img mat-card-image [src]="productImages[3]" alt="Photo of a Shiba Inu" style="height: 20rem;">
+      
+          <mat-card-actions>
+            <button mat-button color="accent" mat-raised-button>10% off on suppliments</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-button color="primary"  mat-raised-button> Explore</button>
+          </mat-card-actions>
+        </mat-card>
+        </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="row">
+
+    <div class="col">
+<mat-card class="example-card" style="margin-top: 30em; margin-left: 15px; ">
+ 
+    <img mat-card-image [src]="productImages[4]" alt="Photo of a Shiba Inu" style="height: 20rem;">
+
+    <mat-card-actions>
+        <button mat-button color="accent" mat-raised-button>Flat discounts for T-Shirts</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-button color="primary"  mat-raised-button> Explore</button>
+      </mat-card-actions>
+  </mat-card>
+</div>
+<div class="col">
+  <mat-card class="example-card" style= "margin-top: 30em">
+ 
+    <img mat-card-image [src]="productImages[5]" alt="Photo of a Shiba Inu" style="height: 20rem;">
+
+    <mat-card-actions>
+        <button mat-button color="accent" mat-raised-button>Buy now for 20% off</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-button color="primary"  mat-raised-button> Explore</button>
+      </mat-card-actions>
+  </mat-card>
+  </div>
+  <div class="col">
+    <mat-card class="example-card" style="margin-top: 30em; margin-left: 55px; ">
+   
+      <img mat-card-image [src]="productImages[6]" alt="Photo of a Shiba Inu" style="height: 20rem;">
+  
+      <mat-card-actions>
+        <button mat-button color="accent" mat-raised-button>Buy now for 20% off</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-button color="primary"  mat-raised-button> Explore</button>
+      </mat-card-actions>
+    </mat-card>
+    </div>
+    <div class="col">
+        <mat-card class="example-card" style="margin-top: 30em; margin-left: 15px; ">
+       
+          <img mat-card-image [src]="productImages[7]" alt="Photo of a Shiba Inu" style="height: 20rem;">
+      
+          <mat-card-actions>
+            <button mat-button color="accent" mat-raised-button>Buy now for 20% off</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-button color="primary"  mat-raised-button> Explore</button>
+          </mat-card-actions>
+        </mat-card>
+        </div>
+</div>
+<div class="container-fluid">
+    <ngb-carousel>
+        <ng-template ngbSlide *ngFor="let image of images_Lower">
+            <div class="wrapper" style="text-align: center;">
+                <img [src]="image.src" alt="Random first slide" style="height:37rem;width:1400px">
+            </div>
+
+        </ng-template>
+    </ngb-carousel>
+
+</div>
+
+
+
+
+
