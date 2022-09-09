@@ -1,0 +1,18 @@
+<div class="topnav">
+    <b routerLink="/home" class="nav-link" style="
+          color: white;
+          cursor: pointer" href="#"> <img src="assets/quickkart.png" height="75px" width="185px" />  <img src="assets/logo2.png" height="75px" width="185px" />  
+      <img [src]="membershipIcon" height="90px" width="90px" (click)="AddMembership()"  />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+      
+      <input matInput placeholder="Search Products">
+      <span class="material-symbols-outlined" style="height:3rem ;">
+        search
+      </span>
+    </b>
+    <a class="nav-link" style="cursor:pointer"><span class="material-icons">
+        power_settings_new
+      </span></a>    </div>
+    <div style="float:right">
+      <notifier-container style="text-align:right">Success</notifier-container>
+    </div>

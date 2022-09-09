@@ -1,0 +1,60 @@
+
+
+
+<div class="row">
+<div class="col-md-7">
+<img [src]="loginBackground" width="400px" height="500px"/>
+</div>
+
+<div class="col-md-5">
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img [src]="quickCartIcon2" width="200px" /><br><br>
+    <form #loginForm="ngForm" (ngSubmit)="ValidateUser(loginForm)" class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+         
+          <input type="email" name="userEmail" matInput  [errorStateMatcher]="matcher"
+                 placeholder="Enter Your Email ID" ngModel>
+          
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        
+       
+
+        <mat-form-field class="example-full-width" appearance="fill">
+         
+          <input type="password" name="userPassword" matInput [errorStateMatcher]="matcher"
+                 placeholder="Enter Your Password" ngModel>
+
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Password is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-radio-group>
+          <mat-radio-button value="1" name="customer" checked="true" (click)="onChangeRadio('c')">Customer</mat-radio-button>&nbsp;
+          <mat-radio-button value="2" name="Admin" (click)="onChangeRadio('v')">Admin</mat-radio-button>
+      </mat-radio-group><br><br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button mat-button color="accent" mat-raised-button type="submit">Login</button> 
+        <br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://www.w3schools.com">Create a Free Account</a>
+      </form>
+
+    
+</div>
+</div>
+
+
+
+
+  
+
+
+
+
+
+
+
+

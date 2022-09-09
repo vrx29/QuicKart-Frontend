@@ -20,8 +20,40 @@ export class HomePageService {
 
   //Getting the Products from backend API
   getProducts():Observable<IProduct[]>{
-    let tempVar = this.http.get<IProduct[]>('https://quickcart-backend.azurewebsites.net/api/home/getproducts')
+    let tempVar = this.http.get<IProduct[]>('https://localhost:5001/api/home/getproducts')
     console.log(tempVar)
     return tempVar
   }
+
+  PostNewSubscriber(emailID:string):Observable<boolean>{
+  
+
+    let tempVar = this.http.get<boolean>('https://localhost:5001/api/Customer/AddNewSubscriber?emailID='+emailID)
+    console.log(tempVar)
+    return tempVar
+  }
+
+  
+  ValidateUser(userEmailID:string, userPassword:string, type:string):Observable<number>
+  {
+    var user:User
+    user={emailID:userEmailID, password:userPassword,usertype:type};
+    console.log(user)
+    let result=this.http.post<number>('https://quickcart-functionapp.azurewebsites.net/api/LoginFunction?code=kDxJUURhVektI3q0G7_k0zea7O9yKG0FG-VfWfLqbLzpAzFuZJP6ww==',user)
+    return result
+
+  }
+
+  
+
+  
+}
+
+export class User{
+
+  emailID:string='';
+  password:string='';
+  usertype:string='';
+
+
 }
