@@ -27,8 +27,10 @@ export class CommonLayoutComponent implements OnInit {
     }
     else{
       this.loggedInUser=null;
-      if(sessionStorage.getItem('userEmailID')==null){
-        sessionStorage.clear();      }
+      if(sessionStorage.getItem('userEmailID')==null)
+      {
+        sessionStorage.clear();      
+      }
     }
     
   }
@@ -49,13 +51,9 @@ openLoginDialog(): void {
       this.loggedInUser=sessionStorage.getItem('userEmailID')
       console.log('Session received'+this.loggedInUser)
      // this.router.navigate(['home'])
-      this.showNotification('success','Logged In successfully!')
     }
   
-    else{
-      this.showNotification('error','Invalid credentials')
-
-    }
+  
     //this.animal = result;
   });
 

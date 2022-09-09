@@ -5,6 +5,7 @@ import { HomePageService } from '../HomePage-Services/home-page.service';
 import { MatRadioModule } from '@angular/material/radio';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +19,13 @@ export class LoginComponent implements OnInit {
   loginBackground='assets/loginBackground.jpg'
   quickCartIcon2='assets/logo2.png'
   loggedInUser=''
+  private readonly notifier: NotifierService;
   matcher = new MyErrorStateMatcher();
-  constructor(private service: HomePageService, private router: Router,public dialogRef: MatDialogRef<LoginComponent>) { }
+  constructor(private service: HomePageService,notifierService: NotifierService, private router: Router,public dialogRef: MatDialogRef<LoginComponent>)
+  {
+    this.notifier = notifierService;
+
+  }
 
   ngOnInit(): void {
   }
@@ -33,14 +39,27 @@ export class LoginComponent implements OnInit {
         if(res==1)
         {
           sessionStorage.setItem('userEmailID', form.value.userEmail)
+          this.showNotification('success','Logged In successfully!')
+
           this.onNoClick()
+        }
+        else{
+          this.showNotification('error','Invalid Username/Password')
+
         }
       },
       err=>{
-        console.log(err)
+        this.showNotification('error','Some error occured!')
       }
     )
   }
+
+  
+public showNotification(type: string, message: string): void {
+
+  this.notifier.notify(type, message);
+}
+
   onNoClick(): void {
     this.dialogRef.close();
   }
