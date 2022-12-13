@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
           this.showNotification('success','Logged In successfully!')
 
           this.onNoClick()
+          this.router.navigate(['/common', form.value.email]);
         }
         else{
           this.showNotification('error','Invalid Username/Password')

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { config } from 'rxjs';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -14,19 +14,25 @@ import { LoginComponent } from '../login/login.component';
 })
 export class CommonLayoutComponent implements OnInit {
   private readonly notifier: NotifierService;
-  loggedInUser:LoggedInUser=null
+  loggedInUser:boolean=false
   membershipIcon='assets/premiumMembershp.jpg'
   membershipFlag=true;
+  logoutIcon='assets/logout.jpg'
 
 
-  constructor(private service: HomePageService, private router: Router,notifierService: NotifierService,public dialog: MatDialog, public loginDialog:MatDialog) {
+  constructor(private service: HomePageService,  private active_route: ActivatedRoute,private router: Router,notifierService: NotifierService,public dialog: MatDialog, public loginDialog:MatDialog) {
    
+    console.log('check GetSession')
+    if(this.active_route.snapshot.params['emailID']!=null)
+      this.loggedInUser = true
+    else
+      this.loggedInUser = false
     this.notifier = notifierService;
     if(sessionStorage.getItem('userEmailID')!=null){
-      this.loggedInUser=sessionStorage.getItem('userEmailID')
+      this.loggedInUser=true
     }
     else{
-      this.loggedInUser=null;
+      this.loggedInUser=false;
       if(sessionStorage.getItem('userEmailID')==null)
       {
         sessionStorage.clear();      
@@ -35,6 +41,26 @@ export class CommonLayoutComponent implements OnInit {
     
   }
   ngOnInit(): void {
+
+    console.log('test ng-oninit')
+    if(sessionStorage.getItem('userEmailID')!=null){
+      this.loggedInUser=true
+    }
+    else{
+      this.loggedInUser=false;
+      if(sessionStorage.getItem('userEmailID')==null)
+      {
+        sessionStorage.clear();      
+      }
+    }
+  }
+
+  GetSession(){
+    console.log('check GetSession')
+    if(this.active_route.snapshot.params['emailID']!=null)
+      this.loggedInUser = true
+    else
+      this.loggedInUser = false
   }
 
 //This is for opening another Modal for Login tab!
@@ -48,9 +74,9 @@ openLoginDialog(): void {
   dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed');
     if(sessionStorage.getItem('userEmailID')!=null){
-      this.loggedInUser=sessionStorage.getItem('userEmailID')
+      this.loggedInUser=true
       console.log('Session received'+this.loggedInUser)
-     // this.router.navigate(['home'])
+     this.router.navigate(['dialog'])
     }
   
   

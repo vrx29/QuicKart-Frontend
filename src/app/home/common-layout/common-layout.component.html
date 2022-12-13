@@ -1,4 +1,4 @@
-<div class="topnav">
+<div class="topnav" *ngIf="loggedInUser; else elseBlock">
     <b routerLink="/home" class="nav-link" style="
           color: white;
           cursor: pointer" href="#"> <img src="assets/quickkart.png" height="75px" width="185px" />  <img src="assets/logo2.png" height="75px" width="185px" />  
@@ -10,8 +10,27 @@
         search 
       </span>
     </b>
+
         <img src="assets/user-login.png" (click)="openLoginDialog()" style="cursor:pointer; margin-top: 20px; height: 4rem; float: right;" />
     </div>
+    <ng-template #elseBlock>
+      <div class="topnav">
+        <b routerLink="/home" class="nav-link" style="
+              color: white;
+              cursor: pointer" href="#"> <img src="assets/quickkart.png" height="75px" width="185px" />  <img src="assets/logo2.png" height="75px" width="185px" />  
+          <img [src]="membershipIcon" height="90px" width="90px" (click)="AddMembership()"  />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+          
+          <input matInput placeholder="Search...">
+          <span class="material-symbols-outlined" style="height:3rem ;">
+            search 
+          </span>
+        </b>
+        
+            <img src="assets/logout.jpg" (click)="openLoginDialog()" style="cursor:pointer; margin-top: 20px; height: 4rem; float: right;" />
+        </div>
+    </ng-template>
+ 
     <div style="float:right">
       <notifier-container style="text-align:right">Success</notifier-container>
     </div>
