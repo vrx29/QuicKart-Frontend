@@ -16,15 +16,20 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import { CommonLayoutComponent } from './common-layout/common-layout.component';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
-
+import { AdminViewComponent } from './admin-view/admin-view.component';
+import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatDialog } from '@angular/material/dialog';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
-    LandingPageComponent, DialogComponent, LoginComponent, CommonLayoutComponent, UserLayoutComponent
+    LandingPageComponent, DialogComponent, LoginComponent, CommonLayoutComponent, UserLayoutComponent, AdminViewComponent
 
 
   ],
-  imports: [
-    CommonModule,MatRadioModule,NgbModule,MatFormFieldModule,MatDialogModule,MatCardModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatInputModule,MatIconModule,HttpClientModule,NotifierModule],
+  imports: [FormsModule,
+    ToolbarModule,MatListModule,MatButtonModule,MatSidenavModule,MatToolbarModule,CommonModule,MatRadioModule,NgbModule,MatFormFieldModule,MatDialogModule,MatCardModule,MatButtonModule,FormsModule,ReactiveFormsModule,MatInputModule,MatIconModule,HttpClientModule,NotifierModule],
   exports:[
 
     LandingPageComponent

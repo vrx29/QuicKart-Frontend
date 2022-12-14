@@ -1,0 +1,202 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1>Quick-Kart</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <!--<a class="nav-link" style="cursor:pointer" (click)="Logout()">Logout</a>-->
+        <a mat-button > Promote Product </a>
+        <a mat-button >Recent Orders</a>
+        <a mat-button >Escalations</a>
+        <a mat-button >Payment</a>
+        <a mat-button >Break</a>
+        <a style="text-align:right" mat-button (click)="Logout()">
+          <span style="text-align:right" class="material-icons">
+            power_settings_new
+          </span>
+        </a>
+        <!--<a mat-button [routerLink]="'/create-activity'"></a>-->
+  
+      </div>
+    </mat-toolbar-row>
+  
+    <!--<mat-toolbar-row>
+      <span style="font-size: 12px;">This view is Strictly for Admin usage</span>
+    </mat-toolbar-row>-->
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav style="background-color: #F5FFFA">
+      <mat-nav-list>
+        <br />
+        <a mat-list-item>
+           &nbsp;<span class="material-icons">
+            home
+          </span>
+        </a>
+        <a mat-list-item (click)="AddProductClicked()">
+          Add a Product  &nbsp;<span class="material-icons">
+            assessment
+          </span>
+        </a>
+  
+        <a mat-list-item>
+          Update a Product <span class="material-icons">
+            upgrade
+          </span>
+        </a>
+        <a mat-list-item>
+          Edit Vendor Payment &nbsp;<span class="material-icons">
+    edit
+  </span>
+        </a>
+        <a mat-list-item>
+          View Analytics&nbsp;<span class="material-icons">
+            assignment_ind
+          </span>
+        </a>
+        <a mat-list-item>
+          Orders&nbsp;<span style="color:green" class="material-icons">
+            done
+          </span>
+        </a>
+       
+        <a mat-list-item>
+          Remove Product &nbsp;<span class="material-icons">
+    delete
+  </span>
+        </a>
+       
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content style="background-color:white">
+      <div style="height: 240vh;">
+        <br /><br />
+        <h1 style="text-align:center;font-size:35px">
+          <b>
+            Hello Vendor!
+          </b><span style="color:green;font-size:35px" class="material-icons">
+    verified
+  </span>
+        </h1>
+        <br />
+<div [hidden]="viewProd">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="text-align:left">
+    <div class="content mat-elevation-z8" style="text-align:center;height: 60px;width: 40rem; background-color:lightgreen;color:black;font-size:20px">
+        <br/><b>ADD NEW PRODUCT</b>
+      </div></div>
+    </div>
+      <BR><br>
+        <form (ngSubmit)="AddProduct1(AddProduct)" #AddProduct="ngForm">
+                         
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6" style="text-align:left">
+
+                <div class="input-group">
+                  <input style="margin-left:0px" type="text" #courseName="ngModel" class="form-control" name="ProductName" placeholder="Enter the Product Name" ngModel required>
+                </div>
+              </div>
+
+            </div>
+<br>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6" style="text-align:left">
+  
+                  <div class="input-group">
+                    <input style="margin-left:0px" type="number" #courseName="ngModel" class="form-control" name="ProductCost" placeholder="Enter the Product Cost" ngModel required>
+                  </div>
+                </div>
+  
+              </div>
+<br>
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6" style="text-align:left">
+  
+                  <div class="input-group">
+                    <input style="margin-left:0px" type="number" #courseName="ngModel" class="form-control" name="quantity" placeholder="Enter the quantity" ngModel required>
+                  </div>
+                </div>
+  
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6" style="text-align:left">
+  
+                    <input  type="file" #imageInput class="form-control" name="img" 
+                          
+                           accept="image/*" (change)="processFile(imageInput)"
+                            >
+                </div>
+                <div *ngIf="selectedFile" class="img-preview-container">
+
+                    <div class="img-preview{{selectedFile.status === 'fail' ? '-error' : ''}}"
+                         [ngStyle]="{'background-image': 'url('+ selectedFile.src + ')'}">
+                    </div>
+                  
+                    <div *ngIf="selectedFile.pending" class="img-loading-overlay">
+                      <div class="img-spinning-circle"></div>
+                    </div>
+                  
+                    <div *ngIf="selectedFile.status === 'ok'" class="alert alert-success"> Image Uploaded Succesfuly!</div>
+                    <div *ngIf="selectedFile.status === 'fail'" class="alert alert-danger"> Image Upload Failed!</div>
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6" style="text-align:center">
+                  <div class="form-group">
+                    <button mat-raised-button color="primary" type="submit" class="btn" [disabled]="!AddProduct.form.valid"  >
+                      ADD
+                    </button>
+                    <notifier-container>Success</notifier-container>
+                  </div>
+
+                </div>
+
+              </div>
+        </form>
+    </div>
+    </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

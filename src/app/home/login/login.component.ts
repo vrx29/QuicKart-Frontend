@@ -38,11 +38,21 @@ export class LoginComponent implements OnInit {
         console.log(res)
         if(res==1)
         {
+
           sessionStorage.setItem('userEmailID', form.value.userEmail)
           this.showNotification('success','Logged In successfully!')
 
           this.onNoClick()
-          this.router.navigate(['/common', form.value.email]);
+         // this.router.navigate(['/common', form.value.email]);
+        }
+        else if(res==2)
+        {
+          console.log('reached')
+          sessionStorage.setItem('userEmailID', form.value.userEmail)
+          this.showNotification('success','Admin Login Success!')
+
+          this.onNoClick()
+          this.router.navigate(['/adminView']);
         }
         else{
           this.showNotification('error','Invalid Username/Password')

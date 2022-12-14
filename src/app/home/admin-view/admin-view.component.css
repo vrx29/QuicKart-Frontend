@@ -1,0 +1,55 @@
+input.ng-invalid {
+    border-left: 5px solid green;
+  }
+  
+  input.ng-valid {
+    border-left: 5px solid green;
+  }
+  
+  input.ng-dirty {
+    border-left: 5px solid green;
+  }
+  
+  input.ng-pristine {
+    border-left: 5px solid green;
+  }
+  
+  
+  input.ng-touched {
+    border-left: 5px solid green;
+  }
+  
+  input.ng-untouched {
+    border-left: 5px solid green;
+  }
+  /*.mat-toolbar.mat-primary {
+    background: #F5FFFA;
+    color: black;
+  }
+  */
+  a:hover {
+    background-color: lightgreen;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  #sec1 {
+    height: 600px;
+    background-color: pink;
+  }
+  
+  .zoom {
+    /*padding: 50px;*/
+    /*background-color: green;*/
+    transition: transform .2s; /* Animation */
+    /*width: 200px;
+    height: 200px;
+    margin: 0 auto;*/
+  }
+  
+    .button:hover {
+      -ms-transform: scale(1.2); /* IE 9 */
+      -webkit-transform: scale(1.5); /* Safari 3-8 */
+      transform: scale(1.2);
+    }
